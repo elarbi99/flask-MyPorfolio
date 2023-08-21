@@ -1,12 +1,22 @@
 from flask import Flask, render_template,request
+from flask_cors import CORS
+from models import create_data, get_data
 import os
 app = Flask(__name__,template_folder='templates',static_folder='static')
+CORS(app)
 
+@app.route('/',methods=['GET'])
+def index():
+    testimonial=get_data()
+    return render_template('index.html',testimonial=testimonial)
 
-@app.route('/')
-def hello():
-    return render_template('index.html')
-
+@app.route('/testimonial', methods=['GET', 'POST'])
+def testimonial():
+    if request.method=="POST":
+        name =request.form.get('name')
+        comment = request.form.get('comment')
+        create_data(name,comment)
+    return render_template('testimonial.html')
 
 if __name__ == '__main__':
  

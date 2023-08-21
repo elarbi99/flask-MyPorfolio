@@ -6,7 +6,58 @@
 @import url("https://fonts.googleapis.com/css?family=Heebo:300,400,500,700|Roboto:300,400,500,700");
 /*---------------------------------------------------- */
 /*----------------------------------------------------*/
+.name-input {
+  border: none;
+  border-radius: 4px;
+  padding: 0.5rem; /* Decreased padding to make it smaller */
+  font-size: 24px;/* Adjust font size as needed */
+  margin-bottom: 0.5rem;
+}
+.comment-box {
+  background-image: linear-gradient(92.88deg, #455EB5 9.16%, #5643CC 43.89%, #673FD7 64.72%);
+  border-radius: 8px;
+  border-style: none;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  padding: 1rem;
+  text-shadow: rgba(0, 0, 0, 0.25) 0 3px 8px;
+  transition: all 0.5s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  max-width: 600px; 
+  margin: 0 auto;
+}
+.button-link:hover {
+  transform: translateY(-2px); /* Add a slight lift effect on hover */
+  filter: brightness(0.95); /* Slightly darken on hover */
+}
+.comment-input {
+  border: none;
+  border-radius: 4px;
+  padding: 1rem; /* Increased padding to make it taller */
+  font-size: 16px;
+  margin-bottom: 0.5rem;
+}
 
+.comment-button {
+  background-color: #FFFFFF;
+  color: #5643CC;
+  border: none;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.comment-button:hover {
+  background-color: #5643CC;
+  color: #FFFFFF;
+}
 .list {
   list-style: none;
   margin: 0px;
@@ -288,7 +339,30 @@ button:focus {
         margin: 0px auto 45px; }
       .home_banner_area .banner_inner .banner_content .banner_map_img {
         text-align: right; }
-
+.add_testimonial
+{
+  display: inline-block;
+  background-image: linear-gradient(92.88deg, #455EB5 9.16%, #5643CC 43.89%, #673FD7 64.72%);
+  border-radius: 8px;
+  border-style: none;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  flex-shrink: 0;
+  font-family: "Inter UI", "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  height: 4rem;
+  padding: 0 1.6rem;
+  text-align: center;
+  text-shadow: rgba(0, 0, 0, 0.25) 0 3px 8px;
+  transition: all 0.5s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  text-decoration: none; /* Remove underline for links */
+  line-height: 4rem;
+}
 .blog_banner {
   min-height: 780px;
   position: relative;
