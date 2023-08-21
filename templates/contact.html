@@ -48,9 +48,11 @@
         <!--================Welcome Area =================-->
         <section id="about" class="welcome_area p_120">
             <div class="container">
-                <h1>Write a Testimonial</h1>
-                <form class="comment-box" action="{{ url_for('testimonial') }}" method="POST">
+                <h1>Contact ME</h1>
+                <form class="comment-box" action="{{ url_for('contact') }}" method="POST">
                     <input class="name-input" type="text" name="name" placeholder="Your Name" required>
+                    <input class="name-input" type="text" name="email" placeholder="Your Email" required>
+                    <input class="name-input" type="text" name="phone" placeholder="Your Phone Number" required>
                     <textarea class="comment-input" name="comment" placeholder="Add your comment..." required></textarea>
                     <button class="comment-button" type="submit">Submit</button>
                 </form>
@@ -61,7 +63,7 @@
         <div class="popup-modal" id="popupModal">
             <div class="popup-content">
                 <h2>Submission Successful</h2>
-                <p>Your testimonial has been submitted successfully!</p>
+                <p>Your Contact info has been submitted successfully!</p>
                 <button class="close-button" id="closeButton">Close</button>
             </div>
         </div>
@@ -106,7 +108,6 @@
         		<div class="row footer_inner">
         			<div class="col-lg-5 col-sm-6">Email: elarbi_m@protonmail.com
                         <p> Phone: (313)-772-1942</p>
-                        <a class="add_testimonial" type="button" href="/contact">Contact ME</a>    
         				<aside class="f_widget ab_widget">
         					<div class="f_title">
         						
