@@ -28,12 +28,11 @@ def contact():
             conn = smtplib.SMTP('smtp.gmail.com', 587)
             conn.ehlo()
             conn.starttls()
+            conn.set_debuglevel(1)
             conn.login('t30710948@gmail.com', 'aoozlhvtwfbemyqt')
 
             send = 'elarbi_m@protonmail.com'
             conn.sendmail('t30710948@gmail.com', send, f'Subject: {subject}\n\n{body}')
-
-            return render_template('contact.html', success=True)
         except smtplib.SMTPException as e:
             error_message = f'An error occurred: {e}'
             return render_template('contact.html', error=error_message)

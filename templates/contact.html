@@ -46,31 +46,31 @@
         </header>
         
         <!--================Welcome Area =================-->
-        <section id="about" class="welcome_area p_120">
-            <div class="container">
-                <h1>Contact ME</h1>
-                <form class="comment-box" action="{{ url_for('contact') }}" method="POST">
-                    <input class="name-input" type="text" name="name" placeholder="Your Name" required>
-                    <input class="name-input" type="text" name="email" placeholder="Your Email" required>
-                    <input class="name-input" type="text" name="phone" placeholder="Your Phone Number" required>
-                    <textarea class="comment-input" name="comment" placeholder="Add your comment..." required></textarea>
-                    <button class="comment-button" type="submit">Submit</button>
-                </form>
-            </div>
-        </section>
-        
-        <!-- Popup Message Modal -->
-        <div class="popup-modal" id="popupModal">
-            <div class="popup-content">
-                <h2>Submission Successful</h2>
-                <p>Your Contact info has been submitted successfully!</p>
-                <button class="close-button" id="closeButton">Close</button>
-            </div>
-        </div>
-        
-        
-        <script>
-            document.addEventListener("DOMContentLoaded", function () {
+       <!--================Welcome Area =================-->
+<section id="about" class="welcome_area p_120">
+    <div class="container">
+        <h1>Contact ME</h1>
+        <form class="comment-box" action="{{ url_for('contact') }}" method="POST">
+            <input class="name-input" type="text" name="name" placeholder="Your Name" required>
+            <input class="name-input" type="text" name="email" placeholder="Your Email" required>
+            <input class="name-input" type="text" name="phone" placeholder="Your Phone Number" required>
+            <textarea class="comment-input" name="comment" placeholder="Add your comment..." required></textarea>
+            <button class="comment-button" type="submit">Submit</button>
+        </form>
+    </div>
+</section>
+
+<!-- Popup Message Modal -->
+<div class="popup-modal" id="popupModal">
+    <div class="popup-content">
+        <h2>Submission Successful</h2>
+        <p>Your Contact info has been submitted successfully!</p>
+        <button class="close-button" id="closeButton">Close</button>
+    </div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
         const popupModal = document.getElementById("popupModal");
         const closeButton = document.getElementById("closeButton");
 
@@ -80,23 +80,33 @@
 
         function hidePopup() {
             popupModal.style.display = "none";
-        // Redirect to the home page
+            // Redirect to the home page
             window.location.href = "/";
         }
 
         const form = document.querySelector(".comment-box");
-        form.addEventListener("submit", function (event) {
+        form.addEventListener("submit", async function (event) {
             event.preventDefault();
-            showPopup();
-            form.reset();
+            const formData = new FormData(form);
+            
+            // Send the form data to the server
+            const response = await fetch("{{ url_for('contact') }}", {
+                method: "POST",
+                body: formData
+            });
+            
+            if (response.ok) {
+                showPopup();
+                form.reset();
+            }
         });
 
         closeButton.addEventListener("click", function () {
             hidePopup();
         });
     });
+</script>
 
-        </script>
         
         
         
